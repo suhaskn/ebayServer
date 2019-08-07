@@ -1,15 +1,15 @@
 const express = require('express')
-const Sequelize = require('sequelize')
-const databaseUrl = process.env.DATABASE_URL || 'postgres://postgres:secret@localhost:5432/postgres'
-const db = new Sequelize(databaseUrl)
+const bodyParser = require('body-parser')
+//const db = require('./db')
+//const Buyer = require('./buyer/index')
+const buyerRouter = require('./buyer/router')
 
 port = process.env.PORT || 3000
 
-const app = express()
+const jsonParser = bodyParser.json()
 
-db
-  .sync()
-  .then(() => console.log('Database schema updated'))
-  .catch(console.error)
+const app = express()
+app.use(jsonParser)
+app.use(buyerRouter)
 
 app.listen(port, ()=>console.log(`App listning on port:${port}`))
