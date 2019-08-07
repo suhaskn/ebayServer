@@ -10,13 +10,15 @@ const app = express()
 const middleware = cors()
 app.use(middleware)
 
-
-port = process.env.PORT || 3000
-
 const jsonParser = bodyParser.json()
 
 
 app.use(jsonParser)
 app.use(buyerRouter)
+
+
+port = process.env.PORT || 3000
+
+
 
 app.listen(port, ()=>console.log(`App listning on port:${port}`))
