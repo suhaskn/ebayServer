@@ -1,5 +1,5 @@
 const {Router} = require('express')
-const Buyer = require('./index.js')
+const Buyer = require('./')
 
 
 const router = new Router()
