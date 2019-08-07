@@ -4,11 +4,17 @@ const bodyParser = require('body-parser')
 //const Buyer = require('./buyer/index')
 const buyerRouter = require('./buyer/router')
 
+const app = express()
+const cors = require('cors')
+const middleware = cors()
+app.use(middleware)
+
+
 port = process.env.PORT || 3000
 
 const jsonParser = bodyParser.json()
 
-const app = express()
+
 app.use(jsonParser)
 app.use(buyerRouter)
 
