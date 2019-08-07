@@ -12,13 +12,9 @@ app.use(middleware)
 
 const jsonParser = bodyParser.json()
 
-
 app.use(jsonParser)
 app.use(buyerRouter)
 
-
 port = process.env.PORT || 3000
-
-
 
 app.listen(port, ()=>console.log(`App listning on port:${port}`))
