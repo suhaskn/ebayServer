@@ -1,6 +1,6 @@
 const express = require('express')
 const Sequelize = require('sequelize')
-const databaseUrl = 'postgres://postgres:secret@localhost:5432/postgres'
+const databaseUrl = process.env.DATABASE_URL || 'postgres://postgres:secret@localhost:5432/postgres'
 const db = new Sequelize(databaseUrl)
 
 port = process.env.PORT || 3000
