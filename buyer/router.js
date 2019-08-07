@@ -10,4 +10,10 @@ router.post('/buyer',(req,res,next)=>{
   .catch(next)
 })
 
+router.get('/buyer',(req,res,next)=>{
+  Buyer.findAll()
+    .then(events => res.send(events))
+    .catch(next)
+})
+
 module.exports = router
